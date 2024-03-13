@@ -21,4 +21,9 @@ public class GarageController {
     public Garage addGarage(@RequestBody Garage garage) {
         return repository.save(garage);
     }
+
+    @DeleteMapping("/garages/{id}")
+    public void deleteGarage(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
 }

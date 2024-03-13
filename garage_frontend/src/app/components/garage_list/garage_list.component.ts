@@ -1,7 +1,35 @@
 import {Component, OnInit} from "@angular/core";
-import {UserService} from "../../model/user.service";
-import {User} from "../../model/user";
+import {Garage} from "../../model/garage/garage";
+import {GarageService} from "../../model/garage/garage.service";
 
+@Component({
+    selector: "app-garages-list",
+    templateUrl: "./garage_list.component.html",
+})
+export class Garage_listComponent implements OnInit {
+    garages: Garage[] | undefined;
+
+    constructor(private garageService: GarageService) {
+    }
+
+    ngOnInit(): void {
+        this.garageService.findAll().subscribe(data => {
+            this.garages = data;
+        });
+    }
+
+    deleteGarage(id: number) {
+        this.garageService.delete(id).subscribe(data => {
+            this.garageService.findAll().subscribe(data => {
+                this.garages = data;
+            });
+        });
+
+    }
+}
+
+
+/*
 @Component({
     selector: "app-user-list",
     templateUrl: "./garage_list.component.html",
@@ -17,4 +45,4 @@ export class Garage_listComponent implements OnInit {
             this.users = data;
         });
     }
-}
+}*/

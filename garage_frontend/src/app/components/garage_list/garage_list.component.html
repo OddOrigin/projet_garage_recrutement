@@ -5,6 +5,28 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let garage of garages">
+                <td>{{ garage.id }}</td>
+                <td>{{ garage.name }}</td>
+                <td><div class="btn btn-deepSeaBlue me-3">Modifier</div> <div (click)="deleteGarage(garage.id)" class="btn btn-coldRed">Supprimer</div></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--
+<div class="card my-5">
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
                 <th scope="col">Email</th>
             </tr>
             </thead>
@@ -17,4 +39,4 @@
             </tbody>
         </table>
     </div>
-</div>
+</div>-->

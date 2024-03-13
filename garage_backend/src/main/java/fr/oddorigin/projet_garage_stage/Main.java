@@ -2,6 +2,8 @@ package fr.oddorigin.projet_garage_stage;
 
 import fr.oddorigin.projet_garage_stage.model.User;
 import fr.oddorigin.projet_garage_stage.model.UserRepository;
+import fr.oddorigin.projet_garage_stage.model.garage.Garage;
+import fr.oddorigin.projet_garage_stage.model.garage.GarageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,14 +21,14 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
-    /*@Bean
-    CommandLineRunner init(UserRepository userRepository) {
+  /*  @Bean
+    CommandLineRunner init(GarageRepository garageRepository) {
         return args -> {
             Stream.of("John", "Julie", "Jennifer", "Helen", "Rachel").forEach(name -> {
-                User user = new User(name, name.toLowerCase() + "@domain.com");
-                userRepository.save(user);
+                Garage garage = new Garage(name);
+                garageRepository.save(garage);
             });
-            userRepository.findAll().forEach(System.out::println);
+            garageRepository.findAll().forEach(System.out::println);
         };
     }*/
 
@@ -35,7 +37,10 @@ public class Main {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("*");
+                registry.addMapping("/**")
+                        .allowedOrigins("*")
+                        .allowedMethods("*")
+                        .allowedHeaders("*");
             }
         };
     }

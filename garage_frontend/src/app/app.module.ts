@@ -9,6 +9,7 @@ import {NgModule} from "@angular/core";
 import {AppComponent} from "./components/app/app.component";
 import {NgOptimizedImage} from "@angular/common";
 import {HomePageComponent} from "./components/home_page/home_page.component";
+import {GarageService} from "./model/garage/garage.service";
 
 @NgModule({
     imports: [
@@ -21,6 +22,7 @@ import {HomePageComponent} from "./components/home_page/home_page.component";
     bootstrap: [AppComponent],
     providers: [
         UserService,
+        GarageService,
     ],
     declarations: [
         AppComponent,
