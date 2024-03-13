@@ -21,4 +21,8 @@ export class GarageService {
     public delete(id: number) {
         return this.http.delete(`${this.garageUrl}/${id}`);
     }
+
+    public edit(id: number) {
+        return this.http.put(`${this.garageUrl}/${id}`, id);
+    }
 }

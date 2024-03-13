@@ -1,6 +1,7 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, TemplateRef, ViewChild} from "@angular/core";
 import {Garage} from "../../model/garage/garage";
 import {GarageService} from "../../model/garage/garage.service";
+
 
 @Component({
     selector: "app-garages-list",
@@ -8,8 +9,10 @@ import {GarageService} from "../../model/garage/garage.service";
 })
 export class Garage_listComponent implements OnInit {
     garages: Garage[] | undefined;
+    garage : Garage;
 
     constructor(private garageService: GarageService) {
+        this.garage = new Garage();
     }
 
     ngOnInit(): void {
@@ -24,8 +27,8 @@ export class Garage_listComponent implements OnInit {
                 this.garages = data;
             });
         });
-
     }
+    
 }
 
 

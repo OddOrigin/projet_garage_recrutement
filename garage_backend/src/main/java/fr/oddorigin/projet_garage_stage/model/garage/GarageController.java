@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 public class GarageController {
     private final GarageRepository repository;
@@ -25,5 +26,11 @@ public class GarageController {
     @DeleteMapping("/garages/{id}")
     public void deleteGarage(@PathVariable Long id) {
         repository.deleteById(id);
+    }
+
+    @PostMapping("/garages/{id}")
+    public Garage updateGarage(@RequestBody Garage newGarage, @PathVariable Long id) {
+        newGarage.setId(id);
+        return repository.save(newGarage);
     }
 }

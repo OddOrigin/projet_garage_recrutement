@@ -10,6 +10,10 @@ import {AppComponent} from "./components/app/app.component";
 import {NgOptimizedImage} from "@angular/common";
 import {HomePageComponent} from "./components/home_page/home_page.component";
 import {GarageService} from "./model/garage/garage.service";
+import {CarsService} from "./model/cars/cars.service";
+import {Cars_listComponent} from "./components/cars_list/cars_list.component";
+
+
 
 @NgModule({
     imports: [
@@ -23,12 +27,14 @@ import {GarageService} from "./model/garage/garage.service";
     providers: [
         UserService,
         GarageService,
+        CarsService,
     ],
     declarations: [
         AppComponent,
         Garage_listComponent,
         UserFormComponent,
         HomePageComponent,
+        Cars_listComponent,
     ],
 })
 export class AppModule {}

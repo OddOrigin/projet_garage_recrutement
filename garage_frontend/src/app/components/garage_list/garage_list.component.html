@@ -12,31 +12,42 @@
             <tr *ngFor="let garage of garages">
                 <td>{{ garage.id }}</td>
                 <td>{{ garage.name }}</td>
-                <td><div class="btn btn-deepSeaBlue me-3">Modifier</div> <div (click)="deleteGarage(garage.id)" class="btn btn-coldRed">Supprimer</div></td>
+                <td><div class="btn btn-deepSeaBlue me-3" >Modifier</div>
+                    <div (click)="deleteGarage(garage.id)" class="btn btn-coldRed" >Supprimer</div></td>
             </tr>
             </tbody>
         </table>
     </div>
+    <div  class="btn btn-deepSeaBlue">Ajouter un garage</div>
 </div>
 
+
 <!--
-<div class="card my-5">
-    <div class="card-body">
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{ user.id }}</td>
-                <td>{{ user.name }}</td>
-                <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
-            </tr>
-            </tbody>
-        </table>
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modifier un garage</h4>
+                <button type="button" class="btn-close" data-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" *ngFor="let garage of garages">
+                <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" [(ngModel)]="garage.name"
+                               class="form-control"
+                               id="name"
+                               name="name"
+                               placeholder="Nom du garage"
+                               required #name="ngModel">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>-->
+</div>
+-->
+
+
+
+

@@ -1,5 +1,7 @@
 package fr.oddorigin.projet_garage_stage.model.garage;
+import fr.oddorigin.projet_garage_stage.model.cars.Cars;
 
+import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,6 +10,7 @@ public class Garage {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
 
     private String name;
 
@@ -35,5 +38,11 @@ public class Garage {
                 '}';
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 }

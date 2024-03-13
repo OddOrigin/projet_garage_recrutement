@@ -2,6 +2,8 @@ package fr.oddorigin.projet_garage_stage;
 
 import fr.oddorigin.projet_garage_stage.model.User;
 import fr.oddorigin.projet_garage_stage.model.UserRepository;
+import fr.oddorigin.projet_garage_stage.model.cars.CarsRepository;
+import fr.oddorigin.projet_garage_stage.model.cars.Cars;
 import fr.oddorigin.projet_garage_stage.model.garage.Garage;
 import fr.oddorigin.projet_garage_stage.model.garage.GarageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,17 @@ public class Main {
                 garageRepository.save(garage);
             });
             garageRepository.findAll().forEach(System.out::println);
+        };
+    }*/
+
+    /*@Bean
+    CommandLineRunner init(CarsRepository carsRepository){
+        return args ->{
+            Stream.of("Peugeot", "Renault", "Citroen", "Fiat", "Ford").forEach(brand -> {
+                Cars car = new Cars(brand, "208", "Red", "AB-123-CD");
+                carsRepository.save(car);
+            });
+            carsRepository.findAll().forEach(System.out::println);
         };
     }*/
 
