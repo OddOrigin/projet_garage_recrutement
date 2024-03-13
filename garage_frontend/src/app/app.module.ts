@@ -1,4 +1,4 @@
-import {Garage_listComponent} from "./components/user_list/garage_list.component";
+import {Garage_listComponent} from "./components/garage_list/garage_list.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "./model/user.service";

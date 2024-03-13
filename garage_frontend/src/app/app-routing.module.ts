@@ -1,5 +1,5 @@
 import {RouterModule, Routes} from '@angular/router';
-import {Garage_listComponent} from "./components/user_list/garage_list.component";
+import {Garage_listComponent} from "./components/garage_list/garage_list.component";
 import {NgModule} from "@angular/core";
 import {UserFormComponent} from "./components/user_form/user-form.component";
 import {HomePageComponent} from "./components/home_page/home_page.component";

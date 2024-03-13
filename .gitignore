@@ -4,4 +4,5 @@ garage_backend/.gradle
 garage_backend/build
 
 garage_frontend/node_modules
+garage_frontend/.angular
 garage_frontend/package-lock.json

@@ -2,10 +2,12 @@ package fr.oddorigin.projet_garage_stage;
 
 import fr.oddorigin.projet_garage_stage.model.User;
 import fr.oddorigin.projet_garage_stage.model.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -17,7 +19,7 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
-    @Bean
+    /*@Bean
     CommandLineRunner init(UserRepository userRepository) {
         return args -> {
             Stream.of("John", "Julie", "Jennifer", "Helen", "Rachel").forEach(name -> {
@@ -26,7 +28,7 @@ public class Main {
             });
             userRepository.findAll().forEach(System.out::println);
         };
-    }
+    }*/
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
