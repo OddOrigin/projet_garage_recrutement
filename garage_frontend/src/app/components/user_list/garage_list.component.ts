@@ -4,9 +4,9 @@ import {User} from "../../model/user";
 
 @Component({
     selector: "app-user-list",
-    templateUrl: "./user-list.component.html",
+    templateUrl: "./garage_list.component.html",
 })
-export class UserListComponent implements OnInit {
+export class Garage_listComponent implements OnInit {
     users: User[] | undefined;
 
     constructor(private userService: UserService) {
