@@ -8,6 +8,7 @@
                 <th scope="col">Color</th>
                 <th scope="col">Model</th>
                 <th scope="col">Registration</th>
+                <th scope="col">Garage</th>
                 <th scope="col">Action</th>
             </tr>
             </thead>
@@ -18,11 +19,14 @@
                 <td>{{ car.color }}</td>
                 <td>{{ car.model }}</td>
                 <td>{{ car.registration }}</td>
+                <td>{{ car.garage.name }}</td>
                 <td><div class="btn btn-deepSeaBlue me-3" >Modifier</div>
                     <div (click)="deleteCars(car.id)" class="btn btn-coldRed" >Supprimer</div></td>
             </tr>
             </tbody>
         </table>
     </div>
-    <div  class="btn btn-deepSeaBlue">Ajouter une voiture</div>
+    <li class="list-inline-item">
+        <a routerLink="/addcars" class="btn btn-outline-custom-blue shadow mb-3">Nouvelle voiture</a>
+    </li>
 </div>

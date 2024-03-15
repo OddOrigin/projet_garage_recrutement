@@ -1,10 +1,12 @@
 package fr.oddorigin.projet_garage_stage.model.cars;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-@Table(name = "cars")
-public class Cars {
-
+public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -13,16 +15,6 @@ public class Cars {
     private String model;
     private String color;
     private String registration;
-
-    public Cars() {
-    }
-
-    public Cars(String brand, String model, String color, String registration) {
-        this.brand = brand;
-        this.model = model;
-        this.color = color;
-        this.registration = registration;
-    }
 
     public long getId() {
         return id;
@@ -44,20 +36,24 @@ public class Cars {
         return registration;
     }
 
-    public void setBrand(String brand) {
+    public Car setBrand(String brand) {
         this.brand = brand;
+        return this;
     }
 
-    public void setModel(String model) {
+    public Car setModel(String model) {
         this.model = model;
+        return this;
     }
 
-    public void setColor(String color) {
+    public Car setColor(String color) {
         this.color = color;
+        return this;
     }
 
-    public void setRegistration(String registration) {
+    public Car setRegistration(String registration) {
         this.registration = registration;
+        return this;
     }
 
     @Override
@@ -70,11 +66,4 @@ public class Cars {
                 ", registration=\"" + registration + "\"" +
                 '}';
     }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-
-
 }

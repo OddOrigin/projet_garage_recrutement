@@ -12,6 +12,8 @@ import {HomePageComponent} from "./components/home_page/home_page.component";
 import {GarageService} from "./model/garage/garage.service";
 import {CarsService} from "./model/cars/cars.service";
 import {Cars_listComponent} from "./components/cars_list/cars_list.component";
+import {GarageFormComponent} from "./components/garage_form/garage_form.component";
+import {CarsFormComponent} from "./components/cars_form/cars_form.component";
 
 
 
@@ -35,6 +37,8 @@ import {Cars_listComponent} from "./components/cars_list/cars_list.component";
         UserFormComponent,
         HomePageComponent,
         Cars_listComponent,
+        GarageFormComponent,
+        CarsFormComponent,
     ],
 })
 export class AppModule {}

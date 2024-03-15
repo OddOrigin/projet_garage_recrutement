@@ -1,0 +1,56 @@
+<div class="card my-5">
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <div class="form-group">
+                <label for="brand">Marque</label>
+                <input type="text" [(ngModel)]="cars.brand"
+                       class="form-control"
+                       id="brand"
+                       name="brand"
+                       placeholder="Marque"
+                       required #name="ngModel">
+            </div>
+
+            <div class="form-group">
+                <label for="color">Couleur</label>
+                <input type="text" [(ngModel)]="cars.color"
+                       class="form-control"
+                       id="color"
+                       name="color"
+                       placeholder="Couleur"
+                       required #name="ngModel">
+            </div>
+
+            <div class="form-group">
+                <label for="model">Modele</label>
+                <input type="text" [(ngModel)]="cars.model"
+                       class="form-control"
+                       id="model"
+                       name="model"
+                       placeholder="Modele"
+                       required #name="ngModel">
+            </div>
+
+            <div class="form-group">
+                <label for="registration">Immatriculation</label>
+                <input type="text" [(ngModel)]="cars.registration"
+                       class="form-control"
+                       id="registration"
+                       name="registration"
+                       placeholder="Immatriculation"
+                       required #name="ngModel">
+            </div>
+
+            <div class="form-group">
+                <label for="garage">Garage (optionnel)</label>
+                <select [(ngModel)]="cars.garage" class="form-control" id="garage" name="garage">
+                    <option *ngFor="let garage of garages" [ngValue]="garage">{{garage.name}}</option>
+                </select>
+            </div>
+
+            <button type="submit" [disabled]="!userForm.form.valid"
+                    class="btn btn-deepSeaBlue mt-3">Submit</button>
+        </form>
+    </div>
+</div>
+

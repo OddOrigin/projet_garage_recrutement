@@ -13,8 +13,8 @@ export class CarsService {
     public findAll(): Observable<Cars[]> {
         return this.http.get<Cars[]>(this.carsUrl);
     }
-
-    public save(cars: Cars) {
+    
+    public save(cars: Cars): Observable<Cars> {
         return this.http.post<Cars>(this.carsUrl, cars);
     }
 

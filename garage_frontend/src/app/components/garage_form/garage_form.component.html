@@ -1,0 +1,17 @@
+<div class="card my-5">
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <div class="form-group">
+                <label for="name">Nom du garage</label>
+                <input type="text" [(ngModel)]="garage.name"
+                       class="form-control"
+                       id="name"
+                       name="name"
+                       placeholder="Nom"
+                       required #name="ngModel">
+            </div>
+            <button type="submit" [disabled]="!userForm.form.valid"
+                    class="btn btn-deepSeaBlue mt-3">Submit</button>
+        </form>
+    </div>
+</div>

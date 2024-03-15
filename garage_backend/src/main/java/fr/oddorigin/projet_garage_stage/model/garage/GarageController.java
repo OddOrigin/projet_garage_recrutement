@@ -1,5 +1,7 @@
 package fr.oddorigin.projet_garage_stage.model.garage;
 
+import fr.oddorigin.projet_garage_stage.model.cars.Car;
+import fr.oddorigin.projet_garage_stage.model.cars.CarRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,8 +11,12 @@ import java.util.List;
 public class GarageController {
     private final GarageRepository repository;
 
-    public GarageController(GarageRepository repository) {
+    private final CarRepository carRepository;
+
+    public GarageController(GarageRepository repository, CarRepository carRepository) {
+
         this.repository = repository;
+        this.carRepository = carRepository;
     }
 
     @GetMapping("/garages")
@@ -24,13 +30,10 @@ public class GarageController {
     }
 
     @DeleteMapping("/garages/{id}")
-    public void deleteGarage(@PathVariable Long id) {
+    public void deleteGarage(@PathVariable long id) {
         repository.deleteById(id);
     }
 
-    @PostMapping("/garages/{id}")
-    public Garage updateGarage(@RequestBody Garage newGarage, @PathVariable Long id) {
-        newGarage.setId(id);
-        return repository.save(newGarage);
-    }
+
+
 }
