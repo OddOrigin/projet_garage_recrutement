@@ -28,15 +28,6 @@ public class CarController {
         repository.save(car);
         if (garageId != null) assignGarage(garageId, car.getId());
         return car;
-
-        //use the @PatchMapping("/cars") to assign a garage to a car
-
-
-
-       /* final Garage garage = garageRepository.findById(garageId).orElseThrow();
-        garage.getCars().add(car);
-        garageRepository.save(garage);
-        return car;*/
     }
 
     @PatchMapping("/cars")
@@ -53,10 +44,14 @@ public class CarController {
         repository.deleteById(id);
     }
 
-/*    @PostMapping("/cars/{id}")
-    public Car updateCar(@RequestBody Car newCar, @PathVariable Long id) {
-        newCar.setId(id);
-        return repository.save(newCar);
-    }*/
-
+    @PatchMapping("/cars/{id}")
+    public Car updateCar(@PathVariable Long id, @RequestBody Car car) {
+        final Car carToUpdate = repository.findById(id).orElseThrow();
+        carToUpdate.setBrand(car.getBrand());
+        carToUpdate.setModel(car.getModel());
+        carToUpdate.setColor(car.getColor());
+        carToUpdate.setRegistration(car.getRegistration());
+        repository.save(carToUpdate);
+        return carToUpdate;
+    }
 }
