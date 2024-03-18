@@ -24,6 +24,11 @@ public class GarageController {
         return repository.findAll();
     }
 
+    @GetMapping("/garages/{id}")
+    public Garage getGarage(@PathVariable long id) {
+        return repository.findById(id).orElseThrow();
+    }
+
     @PostMapping("/garages")
     public Garage addGarage(@RequestBody Garage garage) {
         return repository.save(garage);

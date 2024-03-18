@@ -1,17 +1,62 @@
 <div class="card my-5">
     <div class="card-body">
         <form (ngSubmit)="onSubmit()" #userForm="ngForm">
-            <div class="form-group">
-                <label for="name">Nom du garage</label>
-                <input type="text" [(ngModel)]="garage.name"
-                       class="form-control"
-                       id="name"
-                       name="name"
-                       placeholder="Nom"
-                       required #name="ngModel">
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="name">Nom du garage</label>
+                        <input type="text" [(ngModel)]="garage.name"
+                               class="form-control"
+                               id="name"
+                               name="name"
+                               placeholder="Nom"
+                               required #name="ngModel">
+                    </div>
+                    <button type="submit" [disabled]="!userForm.form.valid"
+                            class="btn btn-deepSeaBlue mt-3">Submit</button>
+                </div>
+
+                <div class="col-8">
+
+                    <form (ngSubmit)="addCar()" #carForm="ngForm">
+                        <div class="form-group">
+                            <label for="car">Add Car to Garage</label>
+                            <select [(ngModel)]="selectedCar" name="car" id="car" class="form-control" required>
+                                <option *ngFor="let car of existingCars" [value]="car.id">{{ car.brand }} {{ car.model }}</option>
+                            </select>
+                        </div>
+                        <button type="submit" [disabled]="!carForm.form.valid" class="btn btn-deepSeaBlue mt-3">Add Car</button>
+                    </form>
+
+
+
+
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Brand</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Model</th>
+                            <th scope="col">Registration</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let car of garage.cars">
+                            <td>{{ car.id }}</td>
+                            <td>{{ car.brand }}</td>
+                            <td>{{ car.color }}</td>
+                            <td>{{ car.model }}</td>
+                            <td>{{ car.registration }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <button type="submit" [disabled]="!userForm.form.valid"
-                    class="btn btn-deepSeaBlue mt-3">Submit</button>
+
+
         </form>
     </div>
 </div>

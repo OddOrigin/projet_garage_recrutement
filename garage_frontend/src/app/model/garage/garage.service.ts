@@ -22,7 +22,11 @@ export class GarageService {
         return this.http.delete(`${this.garageUrl}/${id}`);
     }
 
-    public edit(id: number) {
-        return this.http.put(`${this.garageUrl}/${id}`, id);
+    public edit(id: number, garage: Garage) {
+        return this.http.patch(`${this.garageUrl}/${id}`, garage);
+    }
+
+    public findById(id: number): Observable<Garage> {
+        return this.http.get<Garage>(`${this.garageUrl}/${id}`);
     }
 }

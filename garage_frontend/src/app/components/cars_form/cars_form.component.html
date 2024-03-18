@@ -41,12 +41,6 @@
                        required #name="ngModel">
             </div>
 
-            <div class="form-group">
-                <label for="garage">Garage (optionnel)</label>
-                <select [(ngModel)]="cars.garage" class="form-control" id="garage" name="garage">
-                    <option *ngFor="let garage of garages" [ngValue]="garage">{{garage.name}}</option>
-                </select>
-            </div>
 
             <button type="submit" [disabled]="!userForm.form.valid"
                     class="btn btn-deepSeaBlue mt-3">Submit</button>

@@ -29,4 +29,11 @@ export class Cars_listComponent implements OnInit {
         });
     }
 
+
+    editCars(id: number) {
+        this.carsService.findById(id).subscribe(data => {
+            this.car = data;
+        });
+    }
+
 }

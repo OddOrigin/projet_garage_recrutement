@@ -12,7 +12,7 @@
             <tr *ngFor="let garage of garages">
                 <td>{{ garage.id }}</td>
                 <td>{{ garage.name }}</td>
-                <td><div class="btn btn-deepSeaBlue me-3" >Modifier</div>
+                <td><a [routerLink]="['/editgarage', garage.id]" class="btn btn-deepSeaBlue" >Modifier</a>
                     <div (click)="deleteGarage(garage.id)" class="btn btn-coldRed" >Supprimer</div></td>
             </tr>
             </tbody>

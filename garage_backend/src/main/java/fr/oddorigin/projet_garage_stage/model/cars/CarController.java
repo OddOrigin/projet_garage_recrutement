@@ -3,6 +3,7 @@ package fr.oddorigin.projet_garage_stage.model.cars;
 
 import fr.oddorigin.projet_garage_stage.model.garage.Garage;
 import fr.oddorigin.projet_garage_stage.model.garage.GarageRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,11 @@ public class CarController {
         return repository.findAll();
     }
 
+    @GetMapping("/cars/{id}")
+    public Car getCar(@PathVariable Long id) {
+        return repository.findById(id).orElseThrow();
+    }
+
     @PostMapping("/cars")
     public Car addCar(@RequestParam(required = false) Long garageId, @RequestBody Car car) {
         repository.save(car);
@@ -39,6 +45,7 @@ public class CarController {
         return car;
     }
 
+
     @DeleteMapping("/cars/{id}")
     public void deleteCar(@PathVariable Long id) {
         repository.deleteById(id);
@@ -54,4 +61,7 @@ public class CarController {
         repository.save(carToUpdate);
         return carToUpdate;
     }
+
+
 }
+

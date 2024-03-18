@@ -22,7 +22,13 @@ export class CarsService {
         return this.http.delete(`${this.carsUrl}/${id}`);
     }
 
-    public edit(id: number) {
-        return this.http.put(`${this.carsUrl}/${id}`, id);
+    public edit(id: number, cars: Cars ) {
+        return this.http.patch(`${this.carsUrl}/${id}`,cars);
     }
+
+    public findById(id: number): Observable<Cars> {
+        return this.http.get<Cars>(`${this.carsUrl}/${id}`);
+    }
+
+
 }

@@ -1,6 +1,5 @@
 import {Component} from "@angular/core";
-import {UserService} from "../../model/user.service";
-import {User} from "../../model/user";
+
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -9,7 +8,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class HomePageComponent {
 
-    constructor(private router: Router, private userService: UserService) {
+    constructor(private router: Router, private route: ActivatedRoute) {
     }
 
 }
