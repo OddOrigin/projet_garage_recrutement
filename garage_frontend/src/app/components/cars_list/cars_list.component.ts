@@ -9,9 +9,9 @@ import {CarsService} from "../../model/cars/cars.service";
 })
 export class Cars_listComponent implements OnInit {
     cars: Cars[] | undefined;
-    car : Cars;
+    car: Cars;
 
-    constructor(private carsService: CarsService){
+    constructor(private carsService: CarsService) {
         this.car = new Cars();
     }
 

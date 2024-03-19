@@ -13,7 +13,9 @@ public class Garage {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    //I want garage_id in cars to be deleted when a garage is deleted but not the cars themselves
+
+    @OneToMany(cascade = CascadeType.DETACH)
     @JoinColumn(name = "garage_id")
     private List<Car> cars;
 
@@ -34,13 +36,8 @@ public class Garage {
         return this;
     }
 
-    public Garage addCar(Car car) {
-        cars.add(car);
-        return this;
-    }
-
-    public Garage removeCar(Car car) {
-        cars.remove(car);
+    public Garage setCars(List<Car> cars) {
+        this.cars = cars;
         return this;
     }
 

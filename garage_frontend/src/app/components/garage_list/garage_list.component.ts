@@ -9,7 +9,7 @@ import {GarageService} from "../../model/garage/garage.service";
 })
 export class Garage_listComponent implements OnInit {
     garages: Garage[] | undefined;
-    garage : Garage;
+    garage: Garage;
 
     constructor(private garageService: GarageService) {
         this.garage = new Garage();
@@ -28,24 +28,8 @@ export class Garage_listComponent implements OnInit {
             });
         });
     }
-    
+
 }
 
 
-/*
-@Component({
-    selector: "app-user-list",
-    templateUrl: "./garage_list.component.html",
-})
-export class Garage_listComponent implements OnInit {
-    users: User[] | undefined;
 
-    constructor(private userService: UserService) {
-    }
-
-    ngOnInit(): void {
-        this.userService.findAll().subscribe(data => {
-            this.users = data;
-        });
-    }
-}*/

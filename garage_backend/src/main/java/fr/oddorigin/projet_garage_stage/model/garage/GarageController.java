@@ -34,17 +34,18 @@ public class GarageController {
         return repository.save(garage);
     }
 
-    @DeleteMapping("/garages/{id}")
-    public void deleteGarage(@PathVariable long id) {
-        repository.deleteById(id);
-    }
-
     @PatchMapping("/garages/{id}")
     public Garage updateGarage(@PathVariable long id, @RequestBody Garage garage) {
         final Garage garageToUpdate = repository.findById(id).orElseThrow();
         garageToUpdate.setName(garage.getName());
+        garageToUpdate.setCars(garage.getCars());
         repository.save(garageToUpdate);
         return garageToUpdate;
+    }
+
+    @DeleteMapping("/garages/{id}")
+    public void deleteGarage(@PathVariable long id) {
+        repository.deleteById(id);
     }
 
 }

@@ -46,11 +46,6 @@ public class CarController {
     }
 
 
-    @DeleteMapping("/cars/{id}")
-    public void deleteCar(@PathVariable Long id) {
-        repository.deleteById(id);
-    }
-
     @PatchMapping("/cars/{id}")
     public Car updateCar(@PathVariable Long id, @RequestBody Car car) {
         final Car carToUpdate = repository.findById(id).orElseThrow();
@@ -62,6 +57,9 @@ public class CarController {
         return carToUpdate;
     }
 
-
+    @DeleteMapping("/cars/{id}")
+    public void deleteCar(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
 }
 

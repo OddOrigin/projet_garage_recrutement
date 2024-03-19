@@ -14,7 +14,8 @@
                                required #name="ngModel">
                     </div>
                     <button type="submit" [disabled]="!userForm.form.valid"
-                            class="btn btn-deepSeaBlue mt-3">Submit</button>
+                            class="btn btn-deepSeaBlue mt-3">Submit
+                    </button>
                 </div>
 
                 <div class="col-8">
@@ -23,13 +24,15 @@
                         <div class="form-group">
                             <label for="car">Add Car to Garage</label>
                             <select [(ngModel)]="selectedCar" name="car" id="car" class="form-control" required>
-                                <option *ngFor="let car of existingCars" [value]="car.id">{{ car.brand }} {{ car.model }}</option>
+                                <option *ngFor="let car of existingCars"
+                                        [value]="car.id">{{ car.brand }} {{ car.model }} {{ car.registration }}
+                                </option>
                             </select>
                         </div>
-                        <button type="submit" [disabled]="!carForm.form.valid" class="btn btn-deepSeaBlue mt-3">Add Car</button>
+                        <button type="submit" [disabled]="!carForm.form.valid" class="btn btn-deepSeaBlue mt-3">Add
+                            Car
+                        </button>
                     </form>
-
-
 
 
                     <table class="table table-bordered table-striped">
@@ -50,6 +53,9 @@
                             <td>{{ car.color }}</td>
                             <td>{{ car.model }}</td>
                             <td>{{ car.registration }}</td>
+                            <td>
+                                <div (click)="removeCar(car)" class="btn btn-coldRed">Supprimer</div>
+                            </td>
                         </tr>
                         </tbody>
                     </table>

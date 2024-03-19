@@ -10,7 +10,7 @@ import {CarsService} from "../../model/cars/cars.service";
     templateUrl: "./garage_form.component.html",
 })
 
-export class GarageFormComponent implements OnInit{
+export class GarageFormComponent implements OnInit {
     garage: Garage;
     cars: Cars[];
     selectedCar: number;
@@ -28,16 +28,21 @@ export class GarageFormComponent implements OnInit{
             if (params['id']) {
                 this.garageService.findById(params['id']).subscribe(data => {
                     this.garage = data;
+                    this.carsService.findAll().subscribe(allCars => {
+                        this.existingCars = allCars.filter(car => !this.garage.cars.some(garageCar => garageCar.id === car.id));
+                    });
+                });
+            } else {
+                this.carsService.findAll().subscribe(data => {
+                    this.existingCars = data;
                 });
             }
-        });
-        this.carsService.findAll().subscribe(data => {
-            this.existingCars = data;
         });
     }
 
     onSubmit() {
         if (this.garage.id > 0) {
+            console.log(this.garage);
             this.garageService.edit(this.garage.id, this.garage).subscribe(result => this.gotoGarageList());
         } else {
             this.garageService.save(this.garage).subscribe(result => this.gotoGarageList());
@@ -45,30 +50,26 @@ export class GarageFormComponent implements OnInit{
 
     }
 
-    //I Want a function to add a car to the garage
-
     addCar() {
-        console.log('addCar method called');
-        console.log('Existing cars:', this.existingCars);
-        console.log('Selected car id:', this.selectedCar);
         const carToAdd = this.existingCars.find(car => Number(car.id) === Number(this.selectedCar));
-        if (carToAdd){
+        if (carToAdd) {
             console.log('Car to add:', carToAdd);
-            carToAdd.id = this.garage.id; // Update the garage_id attribute of the car
-            this.carsService.edit(carToAdd.id, carToAdd).subscribe(result => { // Save the updated car to the database
-                console.log('Car updated with new garage id');
-            });
             this.garage.cars.push(carToAdd);
-            this.garageService.edit(this.garage.id, this.garage).subscribe(result => {
-                console.log('Garage updated with new car');
-            });
-        }else {
+        } else {
             console.log('No car found with id:', this.selectedCar);
         }
     }
 
     gotoGarageList() {
         this.router.navigate(["/garages"]);
+    }
+
+
+    removeCar(car: Cars) {
+        console.log('removeCar method called');
+        console.log('Car to remove:', car);
+        this.garage.cars = this.garage.cars.filter(c => c.id !== car.id);
+        console.log('Garage after removing car:', this.garage);
     }
 }
 

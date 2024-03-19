@@ -13,7 +13,7 @@ export class CarsService {
     public findAll(): Observable<Cars[]> {
         return this.http.get<Cars[]>(this.carsUrl);
     }
-    
+
     public save(cars: Cars): Observable<Cars> {
         return this.http.post<Cars>(this.carsUrl, cars);
     }
@@ -22,13 +22,11 @@ export class CarsService {
         return this.http.delete(`${this.carsUrl}/${id}`);
     }
 
-    public edit(id: number, cars: Cars ) {
-        return this.http.patch(`${this.carsUrl}/${id}`,cars);
+    public edit(id: number, cars: Cars) {
+        return this.http.patch(`${this.carsUrl}/${id}`, cars);
     }
 
     public findById(id: number): Observable<Cars> {
         return this.http.get<Cars>(`${this.carsUrl}/${id}`);
     }
-
-
 }

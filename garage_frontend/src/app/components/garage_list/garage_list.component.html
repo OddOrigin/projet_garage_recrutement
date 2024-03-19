@@ -12,8 +12,9 @@
             <tr *ngFor="let garage of garages">
                 <td>{{ garage.id }}</td>
                 <td>{{ garage.name }}</td>
-                <td><a [routerLink]="['/editgarage', garage.id]" class="btn btn-deepSeaBlue" >Modifier</a>
-                    <div (click)="deleteGarage(garage.id)" class="btn btn-coldRed" >Supprimer</div></td>
+                <td><a [routerLink]="['/editgarage', garage.id]" class="btn btn-deepSeaBlue">Modifier</a>
+                    <div (click)="deleteGarage(garage.id)" class="btn btn-coldRed">Supprimer</div>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -24,31 +25,6 @@
 </div>
 
 
-<!--
-<div class="modal" id="myModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Modifier un garage</h4>
-                <button type="button" class="btn-close" data-dismiss="modal"></button>
-            </div>
-            <div class="modal-body" *ngFor="let garage of garages">
-                <form (ngSubmit)="onSubmit()" #userForm="ngForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" [(ngModel)]="garage.name"
-                               class="form-control"
-                               id="name"
-                               name="name"
-                               placeholder="Nom du garage"
-                               required #name="ngModel">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
--->
 
 
 

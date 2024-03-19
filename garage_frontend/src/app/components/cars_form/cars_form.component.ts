@@ -10,24 +10,6 @@ import {Garage} from "../../model/garage/garage";
     templateUrl: "./cars_form.component.html",
 })
 
-/*
-export class CarsFormComponent implements OnInit{
-    cars: Cars;
-
-
-    constructor(private router: Router, private carsService: CarsService, private route: ActivatedRoute) {
-        this.cars = new Cars();
-    }
-
-    ngOnInit(){
-        this.route.params.subscribe(params => {
-            if (params['id']) {
-                this.carsService.findById(params['id']).subscribe(car => this.cars = car);
-            }
-        });
-    }
-*/
-
 export class CarsFormComponent implements OnInit {
     cars: Cars;
 
