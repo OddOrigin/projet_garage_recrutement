@@ -19,14 +19,15 @@
                 <td>{{ car.model }}</td>
                 <td>{{ car.registration }}</td>
 
-                <td><a [routerLink]="['/editcars', car.id]" class="btn btn-deepSeaBlue">Modifier</a>
+                <td><a [routerLink]="['/editcars', car.id]" class="btn btn-deepSeaBlue me-3">Modifier</a>
                     <div (click)="deleteCars(car.id)" class="btn btn-coldRed">Supprimer</div>
                 </td>
             </tr>
             </tbody>
         </table>
+        <li class="list-inline-item">
+            <a routerLink="/addcars" class="btn btn-outline-custom-blue shadow mb-3">Nouvelle voiture</a>
+        </li>
     </div>
-    <li class="list-inline-item">
-        <a routerLink="/addcars" class="btn btn-outline-custom-blue shadow mb-3">Nouvelle voiture</a>
-    </li>
+
 </div>
